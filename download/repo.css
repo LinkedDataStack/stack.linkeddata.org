@@ -1,0 +1,36 @@
+﻿body
+{
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+table
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th
+{
+	background-color: SteelBlue;
+	color: White;
+}
+
+td
+{
+	padding: 0 1ex;
+}
+
+td:last-child
+{
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+tr:nth-child(odd)
+{
+	background-color: LightBlue;
+}
+
+tr:nth-child(even)
+{
+	background-color: AliceBlue;
+}
