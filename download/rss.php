@@ -2,6 +2,8 @@
 ob_start();
 header("Content-Type: application/rss+xml; charset=UTF-8");
 
+include "categories.php";
+
 $suite = $_GET["suite"];
 switch ($suite)
 {
@@ -108,6 +110,7 @@ if ($handle)
 				else // show uncategorised if not in the list
 					echo '<category>'. $categories[-1] .'</category>';
 			}
+
 ?>
 		</item>
 <?php

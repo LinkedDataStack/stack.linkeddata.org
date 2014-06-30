@@ -1,5 +1,9 @@
 <?php
-
+/****
+* This file contains a hard coded categorisation of components in the 
+* linked data lifecycle. You need to add the name of the debian Package 
+* in the category_package array in order to see the component in the website
+*/
 
 $categories = array(
 	-1 => "Uncategorised",
@@ -79,5 +83,4 @@ $categroy_package = array(
 	"virtuoso-vsp-startpage" => array(-1),
 	"virtuoso-vad-syncml" => array(-1),
 	"virtuoso-vad-tutorial" => array(-1) );
-
 ?>
