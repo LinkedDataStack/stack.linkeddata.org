@@ -11,7 +11,7 @@ $categories = array(
 	5 =>"Evolution and Repair",
 	6 =>"Search, Browsing and Exploration",
 	7 =>"Storage and Querying",
-	8 =>"Manual revision and Authoring");
+	8 =>"Manual revision and Authoring",
 	9 =>"Dataset");
 
 $categroy_package = array(

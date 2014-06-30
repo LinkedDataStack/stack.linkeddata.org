@@ -1,5 +1,5 @@
-﻿<?php include 'categories.php';?>
-<?php
+﻿<?php
+ob_start();
 header("Content-Type: application/rss+xml; charset=UTF-8");
 
 $suite = $_GET["suite"];
@@ -25,27 +25,43 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<description>The <?= $suite ?> debian repository of the Linked Data Stack.</description>
 		<link>http://stack.linkeddata.org/download/repo.php?suite=<?= $suite ?></link>
 <?php
-$handle = fopen("/var/reprepro/linkeddata/dists/ldstack" . $suiteSuffix . "/main/binary-amd64/Packages", "r");
+// $handle = fopen("/var/reprepro/linkeddata/dists/ldstack" . $suiteSuffix . "/main/binary-amd64/Packages", "r");
+$handle = fopen("Packages", "r");
 if ($handle)
 {
 	while (($line = fgets($handle, 1024)) !== false)
-	{
-		if (strlen($line) <= 2) // lines include EOL
-		{
-			if (count($row) == 3)
-			{
-				$created = filemtime("/var/reprepro/linkeddata/" . $row["Filename"]);
-				unset($row["Filename"]);
-				$row["Created"] = $created;
+  {
+    if(preg_match("/^\n/", $line))
+    {
+      $rows[] = $row;
+      unset($row);
+      unset($lastprp);
+    }
+    elseif (preg_match("/^(Package|Version|Filename|Description|Maintainer|Homepage):\s*(.+)$/", $line, $matches)){
 
-				$rows[] = $row;
-			}
+      $lastprp = $matches[1];
+      $value = $matches[2];
+      // ignore Homepage and Description content that come as debian instructions
+			if(stripos($line, '<insert the upstream URL, if relevant>') !== false ||
+				 stripos($line, '<insert up to 60 chars description>') !== false ||
+				 stripos($line, '<insert long description, indented with spaces>') !== false )
+				continue;
 
-			unset($row);
-		}
-		elseif (preg_match("/^(Package|Version|Filename):\s*(.+)$/", $line, $matches))
-			$row[$matches[1]] = $matches[2];
-	}
+      if (strcmp($lastprp,"Filename")){
+        $created = filemtime("/var/reprepro/linkeddata/" . $value);
+        $row["Created"] = $created;
+      }
+      elseif(strcmp($lastprp,"Maintainer")){
+        if(preg_match("/<(.*?)>/", $value, $mat)) {
+          $row["Author"] = $mat[1] . " " . str_replace(" ".$mat[0],"",$value);
+        }
+      }
+      $row[$lastprp] = $value;
+     }
+     elseif (preg_match("/^\s/", $line, $matches))
+       $row[$lastprp] .= $line;
+     else unset($lastprp);
+  }
 
 	fclose($handle);
 
@@ -60,12 +76,15 @@ if ($handle)
 	{
 ?>
 		<item>
+			<guid><?= $row["Package"]?></guid>
 			<title><?= $row["Package"] ?> <?= $row["Version"] ?></title>
 			<pubDate><?= gmdate("D, d M Y H:i:s \G\M\T", $row["Created"]) ?></pubDate>
-			<description><?= $row["Description"]?></description>
-			<author><?= $row["Maintainer"]?></author>
-			<link><?= $row["Homepage"]?></link>
-			<?
+<?
+			if(isset($row["Description"])) echo "<description>".$row["Description"]."</description>".PHP_EOL;
+			if(isset($row["Author"])) echo "<author>".$row["Author"]."</author>".PHP_EOL;
+			if(isset($row["dc:creator"])) echo "<dc:creator>".$row["dc:creator"]."</dc:creator>".PHP_EOL;
+			if(isset($row["Homepage"])) echo "<link>".$row["Homepage"]."</link>".PHP_EOL;
+
 			// add an image if a file image exist with the name of the package, add it to the rss 
 			$image = "/var/www/stack.linkeddata.org/wp-content/uploads/".$row["Package"];
 			$list = glob($image.".{jpg,png,gif,jpeg}",GLOB_BRACE);
@@ -79,8 +98,9 @@ if ($handle)
 				echo ' type="'.$mimetype.'" />';
 			}
       // add a category currently hard coded, we need a way to automatize this
+      include 'categories.php';
 			if (isset ($categories)){
-				if (array_key_exists($row["Package"], $categroy_package){
+				if (array_key_exists($row["Package"], $categroy_package)) {
 					foreach ($categroy_package[$row["Package"]] as $value) {
 						echo '<category>'. $categories[$value] .'</category>';						
 					}
@@ -88,7 +108,7 @@ if ($handle)
 				else // show uncategorised if not in the list
 					echo '<category>'. $categories[-1] .'</category>';
 			}
-			?>
+?>
 		</item>
 <?php
 	}
