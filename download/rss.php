@@ -19,8 +19,10 @@ default:
 echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" >
 	<channel>
+		<atom:link href="http://stack.linkeddata.org/download/repo.php?suite=<?= $suite ?>" rel="self" type="application/rss+xml" />
 		<title>Linked Data Stack: <?= ucfirst($suite) ?> Repository</title>
 		<description>The <?= $suite ?> debian repository of the Linked Data Stack.</description>
 		<link>http://stack.linkeddata.org/download/repo.php?suite=<?= $suite ?></link>
@@ -67,20 +69,23 @@ if ($handle)
 	{
 ?>
 		<item>
-			<guid>http://stack.linkeddata.org/components/<?= $row["Package"]?></guid>
+			<guid isPermaLink="false">http://stack.linkeddata.org/components/<?= $row["Package"]?></guid>
 			<title><?= $row["Package"] ?> <?= $row["Version"] ?></title>
 <?
       		if (isset($row["Filename"])) 
 		   echo "<pubDate>". gmdate("D, d M Y H:i:s \G\M\T",filemtime("/var/reprepro/linkeddata/" . $row["Filename"]))."</pubDate>".PHP_EOL;
       	        if (isset($row["Maintainer"])){ 
 		   $authors = explode(",",$row["Maintainer"]);
-		   foreach ($authors as $a)
-		   	if(preg_match("/<(.*?)>/", $a, $mat))
-          			echo "<author>". $mat[1] . " (" . preg_replace('/[^A-Za-z0-9 ]/', '', str_replace(" ".$mat[0],"",$a)) .")</author>".PHP_EOL;
-
+		//	echo "<author>";
+  		foreach ($authors as $a)
+  			if(preg_match("/<(.*?)>/", $a, $mat)){
+   				echo "<dc:creator>". $mat[1] . " (" . preg_replace('/[^A-Za-z0-9 ]/', '', str_replace(" ".$mat[0],"",$a)) .")</dc:creator>".PHP_EOL;
+				// echo "<foaf:email>".$mat[1] . "</foaf:email>".PHP_EOL;
+   				//echo "<foaf:name>". str_replace(" ".$mat[0],"",$a) ."</foaf:name>".PHP_EOL;
+				}
+   		//echo "</author>";
 		}	
 		if(isset($row["Description"])) echo "<description>".$row["Description"]."</description>".PHP_EOL;
-		if(isset($row["Author"])) echo "<author>".$row["Author"]."</author>".PHP_EOL;
 		if(isset($row["Homepage"])) echo "<link>".$row["Homepage"]."</link>".PHP_EOL;
 
 		// add an image if a file image exist with the name of the package, add it to the rss 
