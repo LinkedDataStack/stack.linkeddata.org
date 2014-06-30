@@ -2,6 +2,8 @@
 ob_start();
 header("Content-Type: application/rss+xml; charset=UTF-8");
 
+include 'categories.php';
+
 $suite = $_GET["suite"];
 switch ($suite)
 {
@@ -15,7 +17,16 @@ default:
 	$suite		 = "stable";
 	$suiteSuffix = "";
 }
-
+// get only categories
+if(isset($_GET["categories-only"]))
+        $categories_only = TRUE;
+// get feeds from specific category
+if(isset($_GET["filter_category"])){
+	if (is_numeric($_GET["filter_category"]))
+		$category_id = $_GET["filter_category"];
+	else 
+		$category_id = array_search($_GET["filter_category"], $categories );
+}
 echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 
@@ -26,9 +37,22 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<title>Linked Data Stack: <?= ucfirst($suite) ?> Repository</title>
 		<description>The <?= $suite ?> debian repository of the Linked Data Stack.</description>
 		<link>http://stack.linkeddata.org/download/repo.php?suite=<?= $suite ?></link>
+
+<?php
+if(isset($category_id))
+	echo "<category>".$categories[$category_id]."</category>";	
+else
+	foreach($categories as $cat)
+		echo "<category>".$cat."</category>";
+?>
+
+<?php if(isset($categories_only)) : ?>
+	</channel>
+</rss>
+<?php exit; ?>
+<?php endif; ?>
 <?php
 $handle = fopen("/var/reprepro/linkeddata/dists/ldstack" . $suiteSuffix . "/main/binary-amd64/Packages", "r");
-//$handle = fopen("Packages", "r");
 if ($handle)
 {
   while (($line = fgets($handle, 1024)) !== false)
@@ -41,9 +65,15 @@ if ($handle)
 
     if(preg_match("/^\n/", $line))
     {
-      $rows[] = $row;
-      unset($row);
-      unset($lastprp);
+	if (isset($category_id)){
+		if( array_key_exists($row["Package"], $categroy_package))
+  			if (in_array($category_id, $categroy_package[$row["Package"]]))
+ 				$rows[] = $row;
+	}
+	else
+		$rows[] = $row;
+	unset($row);
+      	unset($lastprp);
     }
     elseif (preg_match("/^(Package|Version|Filename|Description|Maintainer|Homepage):\s*(.+)$/", $line, $matches)){
 
@@ -100,7 +130,6 @@ if ($handle)
 			echo ' type="'.$mimetype.'" />';
 		}
 	       // add a category currently hard coded, we need a way to automatize this
-      		include 'categories.php';
 		if (isset ($categories)){
 			if (array_key_exists($row["Package"], $categroy_package)) {
 				foreach ($categroy_package[$row["Package"]] as $value) {
