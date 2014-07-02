@@ -1,7 +1,7 @@
 ﻿<?php
 ob_start();
 header("Content-Type: application/rss+xml; charset=UTF-8");
-
+echo '<?xml version="1.0" encoding="utf-8"?>';
 include 'categories.php';
 
 $suite = $_GET["suite"];
@@ -27,9 +27,7 @@ if(isset($_GET["filter_category"])){
 	else 
 		$category_id = array_search($_GET["filter_category"], $categories );
 }
-echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
-
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:dc="http://purl.org/dc/elements/1.1/" >
 	<channel>
@@ -37,19 +35,22 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<title>Linked Data Stack: <?= ucfirst($suite) ?> Repository</title>
 		<description>The <?= $suite ?> debian repository of the Linked Data Stack.</description>
 		<link>http://stack.linkeddata.org/download/repo.php?suite=<?= $suite ?></link>
-
 <?php
 if(isset($category_id))
-	echo "<category>".$categories[$category_id]."</category>";	
+	echo "<category>".$categories[$category_id]."</category>".PHP_EOL;	
 else
-	foreach($categories as $cat)
-		echo "<category>".$cat."</category>";
+	foreach($categories as $key => $value){
+		if($key > 0)	
+			echo "<category>".$value."</category>".PHP_EOL;
+
+	}
+
 ?>
 
-<?php if(isset($categories_only)) : ?>
+<?php if($categories_only) : ?>
 	</channel>
 </rss>
-<?php exit; ?>
+	<?php exit; ?>
 <?php endif; ?>
 <?php
 $handle = fopen("/var/reprepro/linkeddata/dists/ldstack" . $suiteSuffix . "/main/binary-amd64/Packages", "r");
@@ -99,8 +100,9 @@ if ($handle)
 	{
 ?>
 		<item>
-			<guid isPermaLink="false">http://stack.linkeddata.org/components/<?= $row["Package"]?></guid>
-			<title><?= $row["Package"] ?> <?= $row["Version"] ?></title>
+			<guid>http://stack.linkeddata.org/components/debian-repository/<?= $row["Package"]?></guid>
+			<title><?= ucwords (str_replace("-"," ",$row["Package"])) ?></title> 
+                        <dc:hasVersion><?= $row["Version"] ?></dc:hasVersion>
 <?
       		if (isset($row["Filename"])) 
 		   echo "<pubDate>". gmdate("D, d M Y H:i:s \G\M\T",filemtime("/var/reprepro/linkeddata/" . $row["Filename"]))."</pubDate>".PHP_EOL;
