@@ -1,14 +1,6 @@
 <style type="text/css"><!--
 		.map_image { display: block; width: 400px; height: 400px; position: relative; background-position: 0 0; background-repeat: no-repeat; }
 		.map_image .map_link { display: block; position: absolute; text-indent: -999em; overflow: hidden; }
-		.map_image #map_link_0 { width: 79px; height: 80px; top: 3px; left: 159px; }
-		.map_image #map_link_1 { width: 81px; height: 76px; top: 51px; left: 269px; }
-		.map_image #map_link_2 { width: 84px; height: 76px; top: 160px; left: 306px; }
-		.map_image #map_link_3 { width: 84px; height: 76px; top: 271px; left: 264px; }
-		.map_image #map_link_4 { width: 71px; height: 74px; top: 317px; left: 163px; }
-		.map_image #map_link_5 { width: 74px; height: 74px; top: 268px; left: 54px; }
-		.map_image #map_link_6 { width: 76px; height: 82px; top: 153px; left: 10px; }
-	.map_image #map_link_7 { width: 72px; height: 73px; top: 55px; left: 56px; }
 --></style>
 		
 <?php get_header(); ?>
@@ -16,34 +8,85 @@
 <div class="clearfix row-fluid">
 	<div class="span6">
 		<div class="map_image" style="background-image: url('http://stack.linkeddata.org/wp-content/uploads/2013/08/lifecyle.png');">
-			<a class="map_link" id="interlink" title="interlinking" href="#"></a>
-			<a class="map_link" id="enrichment" title="enrichment" href="#"></a>
-			<a class="map_link" id="qa" title="quality analysis" href="#"></a>
-			<a class="map_link" id="repair" title="repair" href="#"></a>
-			<a class="map_link" id="search" title="search" href="#"></a>
-			<a class="map_link" id="extract" title="extract" href="#"></a>
-			<a class="map_link" id="store" title="store" href="#"></a>
-			<a class="map_link" id="authoring" title="authoring" href="#"></a>
+			<a class="map_link" id="interlink" title="interlinking" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="enrichment" title="enrichment" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="qa" title="quality analysis" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="repair" title="repair" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="search" title="search" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="extract" title="extract" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="store" title="store" href="#" onclick="alert(this.id)"></a>
+			<a class="map_link" id="authoring" title="authoring" href="#" onclick="alert(this.id)"></a>
 		</div>
 	</div>
 	<div class="span6">
+		<?php // Get RSS Feed(s)
+		include_once( ABSPATH . WPINC . 'do/rss.php' );
+		// change the default feed cache recreation period to 2 hours
+		function return_0(){
+		    return (int) 0;
+		}
+		// adds the filter to set cache lifetime
+		add_filter( 'wp_feed_cache_transient_lifetime' , 'return_0' );
+		// Get a SimplePie feed object from the specified feed source.
+		$rss_cat = fetch_feed( 'http://stack.linkeddata.org/download/rss.php?&categories-only' );
+		if ( ! is_wp_error( $rss_cat ) ) : // Checks that the object is created correctly
+		    $categories = $rss_cat->get_categories();
+		endif;
+		?>
+		<h2>The Stack</h4>
+		<p> The Linked Data Stack comprises a number of tools for managing the life-cycle of Linked Data. The life-cycle
+		comprises in particular the stages:</p>
+		<ul>
+			<?php foreach ( $categories as $cat ) : 
+		    $categories_terms[]=$cat->get_term(); 
+				?>
+    		<li> <?php echo $cat->get_term(); ?> </li>
+    	<?php endforeach; ?>
+		</ul>
+
 		<div id="myCarousel" class="carousel slide">
-		  <ol class="carousel-indicators">
-		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel" data-slide-to="1"></li>
-		    <li data-target="#myCarousel" data-slide-to="2"></li>
-		  </ol>
 		  <!-- Carousel items -->
 		  <div class="carousel-inner">
-		    <div class="active item"> <?php echo gcb(4);?> </div>
-		    <div class="item"> <?php echo gcb(5);?></div>
-		    <div class="item"> <?php echo gcb(6);?> </div>
-		    <div class="item"> <?php echo gcb(7);?> </div>
-		    <div class="item"> <?php echo gcb(8);?> </div>
-		    <div class="item"> <?php echo gcb(9);?> </div>
-		    <div class="item"> <?php echo gcb(10);?> </div>
-			<div class="item"> <?php echo gcb(11);?> </div>
-			<div class="item"> <?php echo gcb(12);?> </div>
+				<?php
+				$rss = fetch_feed( 'http://stack.linkeddata.org/download/rss.php' );
+				if ( ! is_wp_error( $rss ) ) : // Checks that the object is created correctly
+					$rss_items = $rss->get_items();
+					$first = TRUE;
+    			foreach ( $rss_items as $item ) :
+    				unset($item_categories); 
+    				foreach ($item->get_categories() as $category){
+    					if(in_array($category->get_term(), $categories_terms))
+    						$item_categories[] = $category->get_term();
+    				}
+    				if(isset($item_categories)):
+							?>
+							<div class="item <?php if($first){ echo ' active'; $first=FALSE; } ?>"> 
+								<div class="component">
+									<h4>Categories: <?php echo implode(" ", $item_categories); ?></h4>
+					    		<ul class="media-list">
+										<li class="media"> 
+											<?php if ($enclosure = $item->get_enclosure()){
+												echo '<a class="pull-left" href="'.$item->get_link().'" target="_blanc"><img class="media-object" src="'.$enclosure->get_link().'" /></a>';
+											} 
+											$text = $item->get_description();
+											if(strlen($item->get_description())>400){
+												$pos=strpos($item->get_description(), ' ', 400);
+												$text = substr($item->get_description(),0,$pos)."...";
+											}
+											?>
+			    						<div class="media-body">
+			    							<strong><?php echo $item->get_title(); ?></strong>: <?php echo $text ; ?><br>
+												<a class="btn btn-mini btn-link" href="<?php echo $item->get_permalink(); ?>" target="new"> Learn more </a>
+			    						</div>
+			  						</li>
+			  					</ul>	
+				    		</div> 
+			    		</div>
+			    		<?php
+			 			endif;
+		    	endforeach; 
+				endif; 
+				?>
 		  </div>
 		  <!-- Carousel nav -->
 		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
