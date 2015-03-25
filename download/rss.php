@@ -40,7 +40,7 @@ if(isset($category_id))
 	echo "<category>".$categories[$category_id]."</category>".PHP_EOL;	
 else
 	foreach($categories as $key => $value){
-		if($key > 0)	
+/* 		if($key > 0)	 */
 			echo "<category>".$value."</category>".PHP_EOL;
 
 	}
@@ -67,9 +67,15 @@ if ($handle)
     if(preg_match("/^\n/", $line))
     {
 	if (isset($category_id)){
-		if( array_key_exists($row["Package"], $categroy_package))
+		if( array_key_exists($row["Package"], $categroy_package)){
   			if (in_array($category_id, $categroy_package[$row["Package"]]))
  				$rows[] = $row;
+ 		}
+ 		else{
+ 			// not in the list
+ 			if($category_id == -1)
+ 				$rows[] = $row;
+ 		}
 	}
 	else
 		$rows[] = $row;
@@ -95,30 +101,32 @@ if ($handle)
 	}
 
 	usort($rows, cmp);
-
+	
 	foreach ($rows as $row)
 	{
 ?>
 		<item>
 			<guid>http://stack.linkeddata.org/components/debian-repository/<?= $row["Package"]?></guid>
 			<title><?= ucwords (str_replace("-"," ",$row["Package"])) ?></title> 
-                        <dc:hasVersion><?= $row["Version"] ?></dc:hasVersion>
+            <dc:hasVersion><?= $row["Version"] ?></dc:hasVersion>
 <?
-      		if (isset($row["Filename"])) 
+      	if (isset($row["Filename"])) 
 		   echo "<pubDate>". gmdate("D, d M Y H:i:s \G\M\T",filemtime("/var/reprepro/linkeddata/" . $row["Filename"]))."</pubDate>".PHP_EOL;
-      	        if (isset($row["Maintainer"])){ 
+      	if (isset($row["Maintainer"])){ 
 		   $authors = explode(",",$row["Maintainer"]);
-		//	echo "<author>";
-  		foreach ($authors as $a)
-  			if(preg_match("/<(.*?)>/", $a, $mat)){
-   				echo "<dc:creator>". $mat[1] . " (" . preg_replace('/[^A-Za-z0-9 ]/', '', str_replace(" ".$mat[0],"",$a)) .")</dc:creator>".PHP_EOL;
-				// echo "<foaf:email>".$mat[1] . "</foaf:email>".PHP_EOL;
-   				//echo "<foaf:name>". str_replace(" ".$mat[0],"",$a) ."</foaf:name>".PHP_EOL;
+			//	echo "<author>";
+  			foreach ($authors as $a)
+  				if(preg_match("/<(.*?)>/", $a, $mat)){
+   					echo "<dc:creator>". $mat[1] . " (" . preg_replace('/[^A-Za-z0-9 ]/', '', str_replace(" ".$mat[0],"",$a)) .")</dc:creator>".PHP_EOL;
+					// echo "<foaf:email>".$mat[1] . "</foaf:email>".PHP_EOL;
+	   				//echo "<foaf:name>". str_replace(" ".$mat[0],"",$a) ."</foaf:name>".PHP_EOL;
 				}
-   		//echo "</author>";
+   			//echo "</author>";
 		}	
 		if(isset($row["Description"])) echo "<description>".$row["Description"]."</description>".PHP_EOL;
-		if(isset($row["Homepage"])) echo "<link>".$row["Homepage"]."</link>".PHP_EOL;
+		if(isset($row["Homepage"])) 
+			if(preg_match('#((https?|ftp)://(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)#i', $row["Homepage"]))
+				echo "<link>". $row["Homepage"] ."</link>".PHP_EOL;
 
 		// add an image if a file image exist with the name of the package, add it to the rss 
 		$image = "/var/www/stack.linkeddata.org/wp-content/uploads/".$row["Package"];

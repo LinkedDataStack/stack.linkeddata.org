@@ -25,7 +25,7 @@ class UpdraftPlus_BackupModule_ftp {
 	// Get FTP object with parameters set
 	private function getFTP($server, $user, $pass, $disable_ssl = false, $disable_verify = true, $use_server_certs = false, $passive = true) {
 
-		if ('' == $server || '' == $user || '' == $pass) return new WP_Error('no_settings', sprintf(__('No %s settings were found','updraftplus'), 'FTP'));
+		if (empty($server) || empty($user) || empty($pass)) return new WP_Error('no_settings', sprintf(__('No %s settings were found','updraftplus'), 'FTP'));
 
 		if( !class_exists('UpdraftPlus_ftp_wrapper')) require_once(UPDRAFTPLUS_DIR.'/includes/ftp.class.php');
 
@@ -71,10 +71,13 @@ class UpdraftPlus_BackupModule_ftp {
 			$updraftplus->get_job_option('updraft_ssl_disableverify'),
 			$updraftplus->get_job_option('updraft_ssl_useservercerts')
 		);
-		if (is_wp_error($ftp)) return $ftp;
 
-		if (!$ftp->connect()) {
-			$updraftplus->log("FTP Failure: we did not successfully log in with those credentials.");
+		if (is_wp_error($ftp) || !$ftp->connect()) {
+			if (is_wp_error($ftp)) {
+				$updraftplus->log_wp_error($ftp);
+			} else {
+				$updraftplus->log("FTP Failure: we did not successfully log in with those credentials.");
+			}
 			$updraftplus->log(sprintf(__("%s login failure",'updraftplus'), 'FTP'), 'error');
 			return false;
 		}
@@ -91,7 +94,7 @@ class UpdraftPlus_BackupModule_ftp {
 			$size_k = round(filesize($fullpath)/1024,1);
 			# Note :Setting $resume to true unnecessarily is not meant to be a problem. Only ever (Feb 2014) seen one weird FTP server where calling SIZE on a non-existent file did create a problem. So, this code just helps that case. (the check for non-empty upload_status[p] is being cautious.
 			$upload_status = $updraftplus->jobdata_get('uploading_substatus');
-			if (0 == $updraftplus->current_resumption|| (is_array($upload_status) && !empty($upload_status['p']) && $upload_status['p'] == 0)) {
+			if (0 == $updraftplus->current_resumption || (is_array($upload_status) && !empty($upload_status['p']) && $upload_status['p'] == 0)) {
 				$resume = false;
 			} else {
 				$resume = true;
@@ -122,6 +125,7 @@ class UpdraftPlus_BackupModule_ftp {
 			$updraftplus->get_job_option('updraft_ssl_disableverify'),
 			$updraftplus->get_job_option('updraft_ssl_useservercerts')
 		);
+
 		if (is_wp_error($ftp)) return $ftp;
 
 		if (!$ftp->connect()) return new WP_Error('ftp_login_failed', sprintf(__("%s login failure",'updraftplus'), 'FTP'));
@@ -130,7 +134,6 @@ class UpdraftPlus_BackupModule_ftp {
 		if ($ftp_remote_path) $ftp_remote_path = trailingslashit($ftp_remote_path);
 
 		$dirlist = $ftp->dir_list($ftp_remote_path);
-
 		if (!is_array($dirlist)) return array();
 
 		$results = array();
@@ -138,8 +141,11 @@ class UpdraftPlus_BackupModule_ftp {
 		foreach ($dirlist as $k => $path) {
 
 			if ($ftp_remote_path) {
-				if (0 !== strpos($path, $ftp_remote_path)) continue;
-				$path = substr($path, strlen($ftp_remote_path));
+				// Feb 2015 - found a case where the directory path was not prefixed on
+				if (0 !== strpos($path, $ftp_remote_path) && (false !== strpos('/', $ftp_remote_path) && false !== strpos('\\', $ftp_remote_path))) continue;
+				if (0 === strpos($path, $ftp_remote_path)) $path = substr($path, strlen($ftp_remote_path));
+				// if (0 !== strpos($path, $ftp_remote_path)) continue;
+				// $path = substr($path, strlen($ftp_remote_path));
 				if (0 === strpos($path, $match)) $results[]['name'] = $path;
 			} else {
 				if ('/' == substr($path, 0, 1)) $path = substr($path, 1);
@@ -171,10 +177,9 @@ class UpdraftPlus_BackupModule_ftp {
 
 		$opts = $this->get_opts();
 
-		if (isset($ftparr['ftp_object'])) {
+		if (is_array($ftparr['ftp_object']) && isset($ftparr['ftp_object'])) {
 			$ftp = $ftparr['ftp_object'];
 		} else {
-
 			$ftp = $this->getFTP(
 				$opts['host'],
 				$opts['user'],
@@ -183,10 +188,10 @@ class UpdraftPlus_BackupModule_ftp {
 				$updraftplus->get_job_option('updraft_ssl_disableverify'),
 				$updraftplus->get_job_option('updraft_ssl_useservercerts')
 			);
-			if (is_wp_error($ftp)) return $ftp;
 
-			if (!$ftp->connect()) {
-				$updraftplus->log("FTP Failure: we did not successfully log in with those credentials.");
+			if (is_wp_error($ftp) || !$ftp->connect()) {
+				if (is_wp_error($ftp)) $updraftplus->log_wp_error($ftp);
+				$updraftplus->log("FTP Failure: we did not successfully log in with those credentials (host=".$opts['host'].").");
 				return false;
 			}
 
@@ -381,11 +386,11 @@ class UpdraftPlus_BackupModule_ftp {
 
 		$file = md5(rand(0,99999999)).'.tmp';
 		$fullpath = trailingslashit($path).$file;
-		if (!file_exists(ABSPATH.'wp-includes/version.php')) {
+		if (!file_exists(ABSPATH.WPINC.'/version.php')) {
 			_e("Failure: an unexpected internal UpdraftPlus error occurred when testing the credentials - please contact the developer");
 			return;
 		}
-		if ($ftp->put(ABSPATH.'wp-includes/version.php', $fullpath, FTP_BINARY, false, true)) {
+		if ($ftp->put(ABSPATH.WPINC.'/version.php', $fullpath, FTP_BINARY, false, true)) {
 			echo __("Success: we successfully logged in, and confirmed our ability to create a file in the given directory (login type:",'updraftplus')." ".$ftp->login_type.')';
 			@$ftp->delete($fullpath);
 		} else {

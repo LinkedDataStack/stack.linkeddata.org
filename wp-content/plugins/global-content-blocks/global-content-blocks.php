@@ -3,14 +3,14 @@
 		Plugin Name: Global Content Blocks
 		Plugin URI: http://wpxpert.com/global-content-blocks
 		Description: Create your own shortcodes to add HTML, PHP, forms, opt-ins, iframes, Adsense, code snippets, reusable objects, etc, to posts and pages. Ideal for adding reusable objects to your content or to preserve formatting of code that normally gets stripped out or reformatted by the editor
-		Version: 2.0.0
+		Version: 2.0.1
 		Author: Ben Magrill
 		Author URI: http://wpxpert.com
 	*/
   
 	
   
-	define('GCB_VERSION','2.0.0');
+	define('GCB_VERSION','2.0.1');
 	$current_version = get_option("gcb_db_version");
 	
 	require_once 'gcb/gcb.class.php';

@@ -14,7 +14,7 @@
     public static function get_entries_map() {
       $map = get_option(self::$ENTRIES_KEY,"");
       if(strlen($map)) {
-        $m = unserialize($map);
+        $m = maybe_unserialize($map);
         if(is_array($m)) {
           return $m;
         }
@@ -31,7 +31,7 @@
         foreach($map as $entry) {
           $this_entry = get_option("gcb_".$entry,"");
           if(strlen($this_entry)) {
-            $entries[] = unserialize($this_entry);
+            $entries[] = maybe_unserialize($this_entry);
           }
         }
       }
@@ -41,7 +41,7 @@
      }
      
      public static function get_entry_by_id($id) {
-      return unserialize(get_option("gcb_".$id,""));       
+      return maybe_unserialize(get_option("gcb_".$id,""));       
      }
      
      public static function get_entry_by_custom_id($id) {
@@ -109,7 +109,7 @@
         foreach($map as $entry) {
           $this_entry = get_option("gcb_".$entry,"");
           if(strlen($this_entry)) {
-            $e = unserialize($this_entry);
+            $e = maybe_unserialize($this_entry);
             if(is_array($e)) {
               $new_map[] = $entry;
             }
@@ -366,7 +366,7 @@
 							<?php if($view=="update"):?>
 							<?php
 								$edit_id = intval($_GET["edid"]);
-								$record = unserialize(get_option("gcb_".$edit_id));
+								$record = maybe_unserialize(get_option("gcb_".$edit_id));
 								
 								//$val = $record->type="php" ? base64_decode($record->value):$record->value;
 							?>

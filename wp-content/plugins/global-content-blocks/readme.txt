@@ -4,8 +4,8 @@ Donate link:
 https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M27BDW5HXKAEQ
 Tags: admin, shortcode, shortcodes, code, html, php, javascript, snippet, code snippet, iframe, reuse, reusable, adsense, paypal, insert, global, content block, raw html, formatting, pages, posts, editor, tinymce, form, forms, variables, global variables, modify output
 Requires at least: 2.8.6
-Tested up to: 3.8.1
-Stable tag: 2.0.0
+Tested up to: 4.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ Yes, an Import/Export function is included. Just Export form one site, install t
 4. Inserting a Content Block using the shortcode
 
 == Changelog ==
+= 2.0.1 =
+* Modified all unserialize calls into maybe_unserialize
+
 = 2.0.0 =
 * Removed all calls to mysql_real_escape_string as the extension is now deprecated with PHP 5.5.0
 * Moved all data to the standard WP database structure, via the Options API

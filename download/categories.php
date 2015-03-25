@@ -15,9 +15,16 @@ $categories = array(
 	5 =>"Evolution and Repair",
 	6 =>"Search, Browsing and Exploration",
 	7 =>"Storage and Querying",
-	8 =>"Manual revision and Authoring");
+	8 =>"Manual revision and Authoring", 
+	9 =>"Dataset");
 
 $categroy_package = array(
+	"linkedgeodata"  => array(9),
+	"facete2-tomcat7"  => array(6),
+	"facete2-tomcat-common"  => array(6),
+	"sparqlify-tomcat7"  => array(1),
+	"sparqlify-tomcat-common"  => array(1),
+	"sparqlify-cli"  => array(1),
 	"colanut" => array(-1),
 	"d2r" => array(1),
 	"d2r-cordis" => array(1),
