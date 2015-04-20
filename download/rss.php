@@ -109,7 +109,7 @@ if ($handle)
 			<guid>http://stack.linkeddata.org/components/debian-repository/<?= $row["Package"]?></guid>
 			<title><?= ucwords (str_replace("-"," ",$row["Package"])) ?></title> 
             <dc:hasVersion><?= $row["Version"] ?></dc:hasVersion>
-<?
+<?php
       	if (isset($row["Filename"])) 
 		   echo "<pubDate>". gmdate("D, d M Y H:i:s \G\M\T",filemtime("/var/reprepro/linkeddata/" . $row["Filename"]))."</pubDate>".PHP_EOL;
       	if (isset($row["Maintainer"])){ 
