@@ -9,6 +9,10 @@ class UpdraftPlus_Options {
 		return current_user_can(apply_filters('option_page_capability_updraft-options-group', 'manage_options'));
 	}
 
+	public static function options_table() {
+		return 'options';
+	}
+
 	public static function admin_page_url() {
 		return admin_url('options-general.php');
 	}
@@ -21,6 +25,7 @@ class UpdraftPlus_Options {
 		return get_option($option, $default);
 	}
 
+	// The apparently unused parameter is used in the alternative class in the Multisite add-on
 	public static function update_updraft_option($option, $value, $use_cache = true) {
 		update_option($option, $value);
 	}
@@ -58,7 +63,23 @@ class UpdraftPlus_Options {
 
 		if (!$allow_autocomplete) echo ' autocomplete="off"';
 		echo '>';
-		if ($settings_fields) settings_fields('updraft-options-group');
+		if ($settings_fields) {
+			// This is settings_fields('updraft-options-group'), but with the referer pruned
+			echo "<input type='hidden' name='option_page' value='" . esc_attr('updraft-options-group') . "' />";
+			echo '<input type="hidden" name="action" value="update" />';
+			// $action = -1, $name = "_wpnonce", $referer = true , $echo = true 
+			wp_nonce_field("updraft-options-group-options", '_wpnonce', false);
+
+			// wp_unslash() does not exist until after WP 3.5
+			if (function_exists('wp_unslash')) {
+				$referer = wp_unslash( remove_query_arg( array('state', 'action'), $_SERVER['REQUEST_URI']) );
+			} else {
+				$referer = stripslashes_deep( remove_query_arg( array('state', 'action'), $_SERVER['REQUEST_URI']) );
+			}
+
+			$referer_field = '<input type="hidden" name="_wp_http_referer" value="'. esc_attr($referer) . '" />';
+			echo $referer_field;
+		}
 	}
 
 	public static function admin_init() {
@@ -82,6 +103,7 @@ class UpdraftPlus_Options {
 		register_setting('updraft-options-group', 'updraft_openstack');
 		register_setting('updraft-options-group', 'updraft_dropbox', array($updraftplus, 'dropbox_checkchange'));
 		register_setting('updraft-options-group', 'updraft_googledrive', array($updraftplus, 'googledrive_checkchange'));
+		register_setting('updraft-options-group', 'updraft_onedrive', array($updraftplus, 'onedrive_checkchange'));
 
 		register_setting('updraft-options-group', 'updraft_sftp_settings');
 		register_setting('updraft-options-group', 'updraft_webdav_settings', array($updraftplus, 'replace_http_with_webdav'));
