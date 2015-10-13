@@ -1,0 +1,9 @@
+0000.000 (0) Opened log file at time: Wed, 20 May 2015 15:27:29 +0000 on http://stack.linkeddata.org
+0000.002 (0) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.64 WP: 4.1.1 PHP: 5.5.9-1ubuntu4.7 (Linux ldstack 3.16.0-30-generic #40~14.04.1-Ubuntu SMP Thu Jan 15 17:43:14 UTC 2015 x86_64) MySQL:  Server: Apache/2.4.7 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 4.8M | 8.5M) multisite: N mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.003 (0) Free space on disk containing Updraft's temporary directory: 59307.4 Mb
+0000.004 (0) Tasks: Backup files:  (schedule: monthly) Backup DB: 1 (schedule: monthly)
+0000.005 (0) Processed schedules. Tasks now: Backup files:  Backup DB: 
+0000.006 (0) Decremented the semaphore (fd) by 1
+0000.007 (0) Semaphore (fd) still locked
+0000.007 (0) No email will be sent - this backup set was empty.
+0000.008 (0) The backup apparently succeeded and is now complete
