@@ -4,9 +4,8 @@
 !README.md
 !.gitignore
 !wp-content
-!ldis-schema
 !download
- 
+!favicon.ico
 # Ignore everything in the "wp-content" directory, except the "plugins"
 # and "themes" directories.
 wp-content/*
