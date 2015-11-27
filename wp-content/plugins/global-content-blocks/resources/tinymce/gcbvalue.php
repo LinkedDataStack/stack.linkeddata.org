@@ -6,8 +6,7 @@
 	
 	//check user rights, only Contributors and above can get this
 	
-	if(!current_user_can('edit_posts')) {die("disallowed!");}
-	
+	if(!current_user_can('edit_posts')) {die("disallowed.");}	
 	
   $val = get_option("gcb_".$gcb_id,"");
 	if(strlen($val)) {

@@ -1,0 +1,235 @@
+0000.001 (0) Opened log file at time: Mon, 16 Nov 2015 15:28:00 +0000 on http://stack.linkeddata.org
+0000.002 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.11.15 WP: 4.3.1 PHP: 5.5.9-1ubuntu4.13 (Linux ldstack 3.16.0-50-generic #67~14.04.1-Ubuntu SMP Fri Oct 2 22:07:51 UTC 2015 x86_64) MySQL: 5.5.44 Server: Apache/2.4.7 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 4.1M | 4.5M) multisite: N mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.003 (0) Free space on disk containing Updraft's temporary directory: 50783.3 Mb
+0000.005 (0) Tasks: Backup files: 1 (schedule: monthly) Backup DB:  (schedule: monthly)
+0000.006 (0) Processed schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.009 (0) Requesting semaphore lock (fd)
+0000.244 (0) Set semaphore last lock (fd) time to 2015-11-16 15:28:01
+0000.245 (0) Semaphore lock (fd) complete
+0000.248 (0) Backup run: resumption=0, nonce=afcc55f1f153, begun at=1447687680 (1s ago), job type=backup
+0000.250 (0) Scheduling a resumption (1) after 300 seconds (1447687981) in case this run gets aborted
+0000.273 (0) Checking if we have a zip executable available
+0000.275 (0) Creation of backups of directories: beginning
+0000.278 (0) Beginning creation of dump of plugins (split every: 800 Mb)
+0001.053 (0) Total entities for the zip file: 263 directories, 1811 files (0 skipped as non-modified), 24.1 Mb
+0001.061 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0001.067 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0001.074 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0001.081 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0001.088 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0001.089 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (16.2 Mb, 1811 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0003.166 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 600 files added (on-disk size: 5073.7 Kb)
+0003.177 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 700 files added (on-disk size: 5073.7 Kb)
+0003.188 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 800 files added (on-disk size: 5073.7 Kb)
+0003.199 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 900 files added (on-disk size: 5073.7 Kb)
+0003.211 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1000 files added (on-disk size: 5073.7 Kb)
+0003.212 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (2.2 Mb, 1811 files batched, 501 (1002) added so far); re-opening (prior size: 5073.7 Kb)
+0003.444 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1100 files added (on-disk size: 5916.6 Kb)
+0003.458 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1200 files added (on-disk size: 5916.6 Kb)
+0003.473 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1300 files added (on-disk size: 5916.6 Kb)
+0003.487 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1400 files added (on-disk size: 5916.6 Kb)
+0003.501 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1500 files added (on-disk size: 5916.6 Kb)
+0003.503 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (2.2 Mb, 1811 files batched, 501 (1503) added so far); re-opening (prior size: 5916.6 Kb)
+0004.291 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1600 files added (on-disk size: 6897.8 Kb)
+0004.310 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1700 files added (on-disk size: 6897.8 Kb)
+0004.329 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip.tmp: 1800 files added (on-disk size: 6897.8 Kb)
+0005.307 (0) Created plugins zip (0) - 8385.2 Kb in 5 s (1668.1 Kb/s) (SHA1 checksum: 240bc1fb5a2adba879ca27e3177f8b86456eddb1)
+0005.310 (0) Beginning creation of dump of themes (split every: 800 Mb)
+0005.334 (0) Total entities for the zip file: 41 directories, 291 files (0 skipped as non-modified), 1.9 Mb
+0005.338 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-themes.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0005.343 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-themes.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0006.279 (0) Created themes zip (0) - 818 Kb in 1 s (845.9 Kb/s) (SHA1 checksum: 488c1911cfd68a85c8b2950c94f47e7a4c3a2d5a)
+0006.282 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0006.283 (0) Looking for candidates to back up in: /var/www/stack.linkeddata.org/wp-content/uploads
+0006.284 (0) finding files: virtuoso-minimal.png: adding to list (1)
+0006.284 (0) finding files: stones.png: adding to list (2)
+0006.285 (0) finding files: sieve.png: adding to list (3)
+0006.286 (0) finding files: lod2-bubbles-transp-300x233.png: adding to list (4)
+0006.286 (0) finding files: silk.png: adding to list (5)
+0006.287 (0) finding files: limes: adding to list (6)
+0006.288 (0) finding files: sparqled.png: adding to list (7)
+0006.289 (0) finding files: libjs-rdfauthor.png: adding to list (8)
+0006.289 (0) finding files: files.gif: adding to list (9)
+0006.290 (0) finding files: sindice.png: adding to list (10)
+0006.291 (0) finding files: tenforce-logo.jpg: adding to list (11)
+0006.291 (0) finding files: limes.png: adding to list (12)
+0006.292 (0) finding files: visit.png: adding to list (13)
+0006.293 (0) finding files: virtuoso-nepomuk.png: adding to list (14)
+0006.293 (0) finding files: lod2-bubbles-transp.png: adding to list (15)
+0006.294 (0) finding files: silk-latc.png: adding to list (16)
+0006.295 (0) finding files: ontowiki-virtuoso.png: adding to list (17)
+0006.296 (0) finding files: lodgrefine.png: adding to list (18)
+0006.296 (0) finding files: lod2-bubbles-transp-573x400.png: adding to list (19)
+0006.297 (0) finding files: virtuoso-opensource-7.0.png: adding to list (20)
+0006.298 (0) finding files: d2r.png: adding to list (21)
+0006.299 (0) finding files: lifecyle-400x300.png: adding to list (22)
+0006.299 (0) finding files: siren.png: adding to list (23)
+0006.300 (0) finding files: ppx-150x109.png: adding to list (24)
+0006.301 (0) finding files: ore-gwt.png: adding to list (25)
+0006.301 (0) finding files: lodrefine.png: adding to list (26)
+0006.302 (0) finding files: lod2-refine.png: adding to list (27)
+0006.303 (0) finding files: ppx-300x81.png: adding to list (28)
+0006.303 (0) finding files: sigmaee.png: adding to list (29)
+0006.304 (0) finding files: ontowiki-cubeviz.png: adding to list (30)
+0006.305 (0) finding files: sparqlproxy-php.png: adding to list (31)
+0006.305 (0) finding files: GitWorkflow.png: adding to list (32)
+0006.306 (0) finding files: lod2-bubbles-transp-573x311.png: adding to list (33)
+0006.307 (0) finding files: lod2-bubbles-transp-125x125.png: adding to list (34)
+0006.308 (0) finding files: lifecyle-300x300.png: adding to list (35)
+0006.308 (0) finding files: 2013: adding to list (36)
+0006.309 (0) finding files: ontowiki-csvimport.png: adding to list (37)
+0006.310 (0) finding files: sindice-300x82.png: adding to list (38)
+0006.310 (0) finding files: aksw.png: adding to list (39)
+0006.311 (0) finding files: zemanta.png: adding to list (40)
+0006.312 (0) finding files: sindice-125x123.png: adding to list (41)
+0006.312 (0) finding files: files-125x104.gif: adding to list (42)
+0006.313 (0) finding files: sindice-150x123.png: adding to list (43)
+0006.314 (0) finding files: Debian-Package-Workflow.png: adding to list (44)
+0006.314 (0) finding files: limes-service.png: adding to list (45)
+0006.315 (0) finding files: lifecyle-400x311.png: adding to list (46)
+0006.316 (0) finding files: lifecyle-125x125.png: adding to list (47)
+0006.316 (0) finding files: logo-latc.png: adding to list (48)
+0006.317 (0) finding files: spatial-semantic-browser.png: adding to list (49)
+0006.318 (0) finding files: 2014: adding to list (50)
+0006.319 (0) finding files: lifecyle-150x150.png: adding to list (51)
+0006.319 (0) finding files: lifecyle.png: adding to list (52)
+0006.319 (0) finding files: ontowiki-mysql.png: adding to list (53)
+0006.319 (0) finding files: dl-learner-interfaces.gif: adding to list (54)
+0006.319 (0) finding files: ppx-125x109.png: adding to list (55)
+0006.319 (0) finding files: lod2-bubbles-transp-150x150.png: adding to list (56)
+0006.319 (0) finding files: LOD2_Logo.png: adding to list (57)
+0006.319 (0) finding files: uni-mannheim.png: adding to list (58)
+0006.319 (0) finding files: lod2-bubbles-transp-573x300.png: adding to list (59)
+0006.319 (0) finding files: aksw-125x60.png: adding to list (60)
+0006.319 (0) finding files: dbpedia-spotlight-ui.png: adding to list (61)
+0006.319 (0) finding files: sparqlify.png: adding to list (62)
+0006.319 (0) finding files: files-150x104.gif: adding to list (63)
+0006.319 (0) finding files: stanbol.png: adding to list (64)
+0006.319 (0) finding files: d2r-cordis.png: adding to list (65)
+0006.319 (0) finding files: StackOverview.png: adding to list (66)
+0006.319 (0) finding files: poolparty.png: adding to list (67)
+0006.319 (0) finding files: ppx.png: adding to list (68)
+0006.319 (0) finding files: facete.png: adding to list (69)
+0006.319 (0) Beginning creation of dump of uploads (split every: 800 Mb)
+0006.353 (0) Total entities for the zip file: 7 directories, 132 files (0 skipped as non-modified), 3 Mb
+0006.356 (0) Zip: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-uploads.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0006.824 (0) Created uploads zip (0) - 2777.3 Kb in 0.5 s (5522.1 Kb/s) (SHA1 checksum: 00305260175468fc76055b2eb27d3155c0eebd05)
+0006.827 (0) Beginning backup of other directories found in the content directory (index: 0)
+0006.828 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*
+0006.828 (0) Looking for candidates to back up in: /var/www/stack.linkeddata.org/wp-content
+0006.829 (0) finding files: upgrade: skipping: excluded by options
+0006.830 (0) finding files: index.php: adding to list (1)
+0006.831 (0) finding files: uploads: skipping: this is the uploads directory
+0006.832 (0) finding files: themes: skipping: this is the themes directory
+0006.832 (0) finding files: plugins: skipping: this is the plugins directory
+0006.833 (0) finding files: updraft: skipping: this is the updraft directory
+0006.836 (0) Total entities for the zip file: 0 directories, 1 files (0 skipped as non-modified), 0 Mb
+0006.851 (0) Created others zip (0) - 0.1 Kb in 0 s (8.6 Kb/s) (SHA1 checksum: 37c4f85969ffa03934137062ba79d399db4110c7)
+0006.856 (0) Saving backup status to database (elements: 8)
+0006.859 (0) Beginning creation of database dump (WordPress DB)
+0006.861 (0) Testing: /usr/bin/mysqldump
+0006.996 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0007.002 (0) Table wp_options: Total expected rows (approximate): 465
+0007.120 (0) Table wp_options: Total rows added: 464 in 0.12 seconds
+0007.122 (0) Table wp_options: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_options.table.gz - 226.3 Kb)
+0007.125 (0) Table wp_users: Total expected rows (approximate): 23
+0007.129 (0) Table wp_users: Total rows added: 23 in 0.00 seconds
+0007.130 (0) Table wp_users: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_users.table.gz - 2.1 Kb)
+0007.133 (0) Table wp_usermeta: Total expected rows (approximate): 422
+0007.145 (0) Table wp_usermeta: Total rows added: 422 in 0.01 seconds
+0007.147 (0) Table wp_usermeta: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_usermeta.table.gz - 5.4 Kb)
+0007.150 (0) Table wp_commentmeta: Total expected rows (approximate): 6
+0007.153 (0) Table wp_commentmeta: Total rows added: 6 in 0.00 seconds
+0007.153 (0) Table wp_commentmeta: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_commentmeta.table.gz - 0.5 Kb)
+0007.189 (0) Table wp_comments: Total expected rows (approximate): 4
+0007.193 (0) Table wp_comments: Total rows added: 4 in 0.00 seconds
+0007.194 (0) Table wp_comments: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_comments.table.gz - 1.3 Kb)
+0007.197 (0) Table wp_links: Total expected rows (approximate): 11
+0007.228 (0) Table wp_links: Total rows added: 11 in 0.03 seconds
+0007.229 (0) Table wp_links: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_links.table.gz - 0.9 Kb)
+0007.232 (0) Table wp_postmeta: Total expected rows (approximate): 408
+0007.244 (0) Table wp_postmeta: Total rows added: 408 in 0.01 seconds
+0007.245 (0) Table wp_postmeta: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_postmeta.table.gz - 5.2 Kb)
+0007.249 (0) Table wp_posts: Total expected rows (approximate): 689
+0007.519 (0) Table wp_posts: Total rows added: 689 in 0.27 seconds
+0007.521 (0) Table wp_posts: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_posts.table.gz - 247.8 Kb)
+0007.525 (0) Table wp_term_relationships: Total expected rows (approximate): 58
+0007.528 (0) Table wp_term_relationships: Total rows added: 58 in 0.00 seconds
+0007.529 (0) Table wp_term_relationships: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_term_relationships.table.gz - 0.5 Kb)
+0007.532 (0) Table wp_term_taxonomy: Total expected rows (approximate): 18
+0007.534 (0) Table wp_term_taxonomy: Total rows added: 18 in 0.00 seconds
+0007.535 (0) Table wp_term_taxonomy: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_term_taxonomy.table.gz - 0.6 Kb)
+0007.547 (0) Table wp_terms: Total expected rows (approximate): 18
+0007.550 (0) Table wp_terms: Total rows added: 18 in 0.00 seconds
+0007.551 (0) Table wp_terms: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_terms.table.gz - 0.7 Kb)
+0007.563 (0) Table wp_gcb: Total expected rows (approximate): 13
+0007.566 (0) Table wp_gcb: Total rows added: 10 in 0.00 seconds
+0007.567 (0) Table wp_gcb: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_gcb.table.gz - 3.4 Kb)
+0007.572 (0) Table wp_post_relationships: Total expected rows (approximate): 0
+0007.574 (0) Table wp_post_relationships: Total rows added: 0 in 0.00 seconds
+0007.575 (0) Table wp_post_relationships: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_post_relationships.table.gz - 0.3 Kb)
+0007.578 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0007.580 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0007.581 (0) Table wp_termmeta: finishing file (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_termmeta.table.gz - 0.3 Kb)
+0007.584 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_options.table.gz (1/14): adding to final database dump
+0007.661 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_users.table.gz (2/14): adding to final database dump
+0007.662 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_usermeta.table.gz (3/14): adding to final database dump
+0007.665 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_commentmeta.table.gz (4/14): adding to final database dump
+0007.666 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_comments.table.gz (5/14): adding to final database dump
+0007.668 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_links.table.gz (6/14): adding to final database dump
+0007.669 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_postmeta.table.gz (7/14): adding to final database dump
+0007.672 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_posts.table.gz (8/14): adding to final database dump
+0007.763 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_term_relationships.table.gz (9/14): adding to final database dump
+0007.765 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_term_taxonomy.table.gz (10/14): adding to final database dump
+0007.766 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_terms.table.gz (11/14): adding to final database dump
+0007.767 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_gcb.table.gz (12/14): adding to final database dump
+0007.768 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_post_relationships.table.gz (13/14): adding to final database dump
+0007.769 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db-table-wp_termmeta.table.gz (14/14): adding to final database dump
+0007.770 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db.gz: finished writing out complete database file (480 Kb)
+0007.777 (0) Total database tables backed up: 14 (backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db.gz, size: 504328, checksum (SHA1): ad6220756f8d02f3846683b6fac580e9ef85795c)
+0007.779 (0) Saving backup history
+0007.783 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0007.784 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0007.784 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0007.785 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-others.zip: others: This file has not yet been successfully uploaded: will queue
+0007.786 (0) backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db.gz: db: This file has not yet been successfully uploaded: will queue
+0007.788 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0007.791 (0) Cloud backup selection (1/1): none (last)
+0007.792 (0) No remote despatch: user chose no remote backup service
+0007.793 (0) Recording as successfully uploaded: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-plugins.zip (1d3228d257a9f738b11bd26b869fbd36)
+0007.798 (0) Recording as successfully uploaded: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-themes.zip (fa427c9554ccded0a770a680b5c44ccf)
+0007.802 (0) Recording as successfully uploaded: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-uploads.zip (7593ccb98b741f2eb06f803aa8c94575)
+0007.806 (0) Recording as successfully uploaded: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-others.zip (87c65d0e2be81a69ef9da65bd4ab6311)
+0007.810 (0) Recording as successfully uploaded: backup_2015-11-16-1628_Linked_Data_Stack_afcc55f1f153-db.gz (82653464eb61625addf024f323589ad6)
+0007.814 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0007.815 (0) Number of backup sets in history: 3
+0007.816 (0) Examining backup set with datestamp: 1447687680 (Nov 16 2015 15:28:00)
+0007.817 (0) 1447687680: this backup set remains non-empty (1/1); will retain in history
+0007.818 (0) Examining backup set with datestamp: 1445096028 (Oct 17 2015 15:33:48)
+0007.818 (0) 1445096028: this backup set remains non-empty (1/1); will retain in history
+0007.819 (0) Examining backup set with datestamp: 1444741527 (Oct 13 2015 13:05:27)
+0007.820 (0) 1444741527: db: this set includes a database (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-db.gz); db count is now 3
+0007.820 (0) 1444741527: db: over retain limit (2); will delete this database
+0007.821 (0) Delete file: backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-db.gz, service=none
+0007.822 (0) Deleting local copy (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-db.gz)
+0007.824 (0) plugins: 1444741527: over retain limit (2); will delete this file (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-plugins.zip)
+0007.824 (0) themes: 1444741527: over retain limit (2); will delete this file (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-themes.zip)
+0007.825 (0) uploads: 1444741527: over retain limit (2); will delete this file (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-uploads.zip)
+0007.826 (0) others: 1444741527: over retain limit (2); will delete this file (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-others.zip)
+0007.827 (0) Delete file: backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-plugins.zip, service=none
+0007.827 (0) Deleting local copy (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-plugins.zip)
+0007.839 (0) Delete file: backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-themes.zip, service=none
+0007.840 (0) Deleting local copy (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-themes.zip)
+0007.841 (0) Delete file: backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-uploads.zip, service=none
+0007.841 (0) Deleting local copy (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-uploads.zip)
+0007.842 (0) Delete file: backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-others.zip, service=none
+0007.843 (0) Deleting local copy (backup_2015-10-13-1405_Linked_Data_Stack_b3c187630ecd-others.zip)
+0007.845 (0) 1444741527: this backup set is now empty; will remove from history
+0007.845 (0) 1444741527: deleting log file (log.b3c187630ecd.txt)
+0007.846 (0) Retain: saving new backup history (sets now: 2) and finishing retain operation
+0007.849 (0) Resume backup (afcc55f1f153, 0): finish run
+0007.851 (0) Decremented the semaphore (fd) by 1
+0007.852 (0) Semaphore (fd) unlocked
+0007.853 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0007.856 (0) No email will/can be sent - the user has not configured an email address.
+0007.856 (0) The backup apparently succeeded and is now complete

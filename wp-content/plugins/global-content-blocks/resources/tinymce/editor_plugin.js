@@ -60,10 +60,10 @@
         getInfo : function() {
             return {
                 longname : "Global Content Blocks",
-                author : 'Ben Magrill',
-                authorurl : 'http://wpxpert.com',
-                infourl : 'http://wpxpert.com/global-content-blocks',
-                version : "2.0.0"
+                author : 'Dave Liske',
+                authorurl : 'http://micuisine.com/content-block-plugins/',
+                infourl : 'http://micuisine.com/content-block-plugins/',
+                version : "2.1.4"
             };
         }
     });

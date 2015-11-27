@@ -28,12 +28,23 @@ jQuery(document).ready(function() {
         });
     }
 
-
-
     jQuery("#gcb_type").change(function(){
         var sel = jQuery(this).children("option:selected");
         jQuery("span#type_help").text(sel.attr("help"));
         jQuery("img#type_img").attr("src","../wp-content/plugins/global-content-blocks/resources/i/"+sel.attr("img"));
+		var view = jQuery("#gcb_view").val();
+		view = view=="addnew" ? view : "update";
+		
+		if(view == "addnew") {
+			if(sel.val() == "php") {
+				location.href = "options-general.php?page=global-content-blocks&view=addnew&type=php#gcb_type_select";
+			} else {
+				if(jQuery("#php_type_textarea").length) {
+					location.href = "options-general.php?page=global-content-blocks&view=addnew&type="+sel.val()+"#gcb_type_select";
+				}
+			}
+		}
+		
     });
 
     jQuery(".gcb_export").each(function(){
@@ -51,7 +62,7 @@ jQuery(document).ready(function() {
             }
             else
                 {
-                    alert("Select at least one block to export!");
+                    alert("Select at least one block to export.");
                 }
     });
     });
@@ -64,15 +75,5 @@ jQuery(document).ready(function() {
       console.log(jQuery(this).val());
     
     });
-	
-	
-	//try to switch the rich editor for the block editor
-	/*
-	if(jQuery("#gcbvalue").length) {
-	try {
-		switchEditors.switchto(jQuery("a.switch-html")[0]);
-	} catch(err){}
-	}
-	*/
     
 });

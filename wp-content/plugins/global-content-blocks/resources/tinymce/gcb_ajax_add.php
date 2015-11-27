@@ -1,11 +1,10 @@
 ﻿<?php
-	require_once('../../../../../wp-load.php');
-	
+	require_once('../../../../../wp-load.php');	
 	
 	if(!isset($_POST["name"]) || !isset($_POST["content"])) {die("invalid call!");}
 	
 	//check user rights, only editors and above can add
-	if(!current_user_can('publish_pages')) {die("disallowed!");}
+	if(!current_user_can('publish_pages')) {die("disallowed.");}
 	
 	
 	$name = $_POST["name"];
@@ -13,10 +12,9 @@
 	$type = (htmlspecialchars($_POST['type']));
 	$value = (htmlspecialchars($_POST['content']));
 	
-	if(!strlen($name) || !strlen($value)) {die("invalid call!");}
+	if(!strlen($name) || !strlen($value)) {die("invalid call.");}
 	
-	$available_types = gcb::get_available_types();
-	
+	$available_types = gcb::get_available_types();	
   
   $entry_data = array(
           "name"        =>  $name,

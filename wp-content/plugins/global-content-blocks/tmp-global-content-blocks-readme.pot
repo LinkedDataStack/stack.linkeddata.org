@@ -1,0 +1,325 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "Global Content Blocks"
+msgstr ""
+
+#. Short description.
+msgid "Creates shortcodes to add HTML, PHP, forms, opt-ins, iframes, Adsense, code snippets, reusable objects, etc, to posts/pages and preserves formatting."
+msgstr ""
+
+#. Screenshot description.
+msgid "The Settings page"
+msgstr ""
+
+#. Screenshot description.
+msgid "Adding a new Content Block"
+msgstr ""
+
+#. Screenshot description.
+msgid "Inserting a Content Block using the toolbar button"
+msgstr ""
+
+#. Screenshot description.
+msgid "Inserting a Content Block using the shortcode"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Global Content Blocks</strong> lets you create your own shortcodes to insert reusable code snippets, PHP or HTML including forms, opt-in boxes, iframes, Adsense code, etc, into pages and posts as well as widgets and directly into php content. You can insert them directly using  shortcodes or via a button in the TinyMCE visual editor toolbar. You can also insert the entire content of the Content Block instead of the shortcode or use other shortcodes within the Content Block. You can also modify the output of the Content Block via a hook."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "It is ideal for inserting reusable objects into your content or to prevent the WordPress editor from stripping out your code or otherwise changing your formatting. The shortcodes are masked as images to allow easy manipulation and non-html tags contamination."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "You can also use your own variables, WordPress global variables and other shortcodes within Content Blocks, modify the output, use shortcodes in themes and widgets, nest shorcodes and a whole lot more. See http://wpxpert.com/category/gcb-advanced-usage/ for more information."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "The plugin includes an Import/Export fuction to copy content blocks from one WordPress site to another."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Further information and screenshots are available on the plugin homepage at http://wpxpert.com/global-content-blocks/."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "As featured on ManageWP Blog (http://managewp.com/global-content-blocks) and Spanky Media (http://spankymedia.com.au/using-wordpress-global-content-blocks-to-promote-your-content/)."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "If you have any feedback, issues or suggestions for improvements please leave a comment on the plugin homepage and if you like the plugin please give it a rating at http://wordpress.org/extend/plugins/global-content-blocks :-)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Download the <strong>global-content-blocks.zip</strong> file to your local machine."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Either use the automatic plugin installer <em>(Plugins - Add New)</em> or Unzip the file and upload the <strong>global-content-blocks</strong> folder to your <strong>/wp-content/plugins/</strong> directory."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin through the Plugins menu"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Visit the <strong>Global Content Blocks</strong> settings page <em>(Settings &gt; Global Content Blocks)</em> to add or edit Content Blocks."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Insert the Content Block into pages or posts using the button on the editor tool bar or by inserting the shortcode <strong>[contentblock id=xx]</strong> where <strong>xx</strong> is the ID number of the Content Block."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Made sure the PHP type is edited via simple textarea"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added Dave Liske as contributor"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor bug fixes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed all calls to mysql_real_escape_string as the extension is now deprecated with PHP 5.5.0"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Moved all data to the standard WP database structure, via the Options API"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed unused files"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed bug when updating from old version"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed bug introduced in previous release"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Default charset for the database table is now UTF-8"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added optional custom ID for content blocks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor fix to allow the TinyMCE editor GCB icon to coexist with icons from other plugins"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "security patch applied"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor fix for issue experienced by some users"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added a visual editor when creating content blocks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added function to include own variables in content blocks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Home site moved to http://wpxpert.com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improvements to HTML content block"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New function to include shortcodes within content blocks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added shortened PHP function to use content blocks outside of pages or posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added hook to modify output of inserted content block"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed reported expoloit vulnerability"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed export issue in some browsers"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added option to show/hide the icon in the editor toolbar in case of conflict with other plugins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added option to create a new content block while inserting the block in the page/post"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tidied up code to avoid errors in debug mode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed bug, TinyMCE editor button replacing button of some other plugins"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed bug, slashes being stripped when inserting code block"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Updated TinyMCE default manager for better cross platform compatibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added ability to insert PHP blocks into content"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Option to insert to entire content block into pages/posts instead of the shortcode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Option to select the block type, each represented by a different image block when inserted into content making it easier to identify on the page"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added Import/Export function to export all or selected content blocks to an xml file that can be imported into the Global Content Blocks plugin on another WordPress site"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added a link to the Settings page from the Plugins page listing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor cosmetic changes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added a Donate button on the Settings page and some advertising"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor typo correction in install file"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Stable version released."
+msgstr ""
+
+#. Found in faq header.
+msgid "How big a content block can I add?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I create content blocks with PHP code?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I create content blocks using a visual editor?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How do I use a shortcode within a content block?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I use content blocks outside of posts and pages?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Is it possible to modify the output of inserted content blocks?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I use variables?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I use WordPress global variables?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Will I lose my content blocks if I change the theme or upgrade WordPress?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can it be completely uninstalled?"
+msgstr ""
+
+#. Found in faq header.
+msgid "Can I copy any content blocks I've created to another WordPress site?"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "The content block will hold up to 64,000 characters."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Yes, just copy the PHP as normal into a content block without the &lt;?php, &lt;?, ?&gt; tags and insert the block into your content as normal."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Yes, the Settings page where the content blocks are created includes the standard WordPress visual/HTML editor."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Simply add the shortcode within a block as normal, for example [gallery] to add a WordPress gallery."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Yes, just wrap it in the PHP function &lt;?php echo gcb(x);?&gt; where x is the content block ID. You can also use the longer form &lt;?php do_shortcode(&quot;[contentblock id=x]&quot;);?&gt;"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes, you can add the filter 'gcb_block_output' to modify output by adding a PHP script to functions.php, for example:<br />\n"
+"add_filter('gcb_block_output', 'alter_block_output');<br />\n"
+"function alter_block_output($value) {<br />\n"
+"//process the output here, e.g., convert text to lowercase<br />\n"
+"$new_value = strtolower($value); <br />\n"
+"return &quot;Processed output: &quot;.$new_value;<br />\n"
+"}"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes, You can use variables within the content block that will be replaced when the block is displayed. For example, if you create a content block, say id=1 with:\n"
+"My name is %%name%%<br />\n"
+"by using the shortcode [contentblock id=1 name=&quot;John Doe&quot;] when displayed it will appear as My name is John Doe."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Yes, WordPress global variables can be used within content blocks, for example,\n"
+"global $user_login;<br />\n"
+"global $user_email;<br />\n"
+"echo &quot;$user_login, you email is: $user_email&quot;;<br />\n"
+"would output the username and email of the current logged in user, e.g., John, your email is john@youremail.com."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "No, the blocks are added to the WordPress database so are independent of the theme and unaffected by WordPress upgrades."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Yes, there is an option to delete the database table if you want to completely remove the plugin."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Yes, an Import/Export function is included. Just Export form one site, install the plugin on the other site and import."
+msgstr ""

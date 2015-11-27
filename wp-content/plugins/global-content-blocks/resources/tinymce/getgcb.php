@@ -1,12 +1,11 @@
 <?php
 	require_once('../../../../../wp-load.php');
 	
-	$list = gcb::get_entries();
-	
+	//$list = gcb::get_entries();
+	$list = gcb::get_entries_by_name();	
 	
 	//define the available types,and their image
-	$available_types = gcb::get_available_types();
-	
+	$available_types = gcb::get_available_types();	
 ?>
 
 <html>
@@ -38,14 +37,13 @@
 							tinyMCEPopup.close()
 							return false;
 						}
-						);
-						
+						);						
 					}
 				}
 				else
 				{
 					var html = "";
-					alert("Please select something!");
+					alert("Please select something.");
 					return false;
 				}
 				if(continue_send) {
@@ -55,10 +53,7 @@
 					return false;
 				}
 			}
-			jQuery(document).ready(function(ex){     
-				
-				
-				
+			jQuery(document).ready(function(ex){     				
 				
 				jQuery("#gcb_insert_link").click(function(ex){            
 					jQuery("#add_wrapper").slideUp(200);
@@ -80,7 +75,7 @@
 				
 				jQuery("#gcb_frame_add_do").click(function(){
 					if(!check_add_form()){
-						alert("Please fill in all mandatory  values!\n(note: mandatory fields are marked with a star sign;eg: *)");
+						alert("Please fill in all mandatory values.\n(note: mandatory fields are marked with a star sign;eg: *)");
 						return;
 					}
 					
@@ -99,12 +94,9 @@
 						jQuery("#insert_wrapper").slideDown(200);
 					}, 
 					"json"
-					);
-					
-				});
-				
-				<?php endif;?>
-				
+					);					
+				});				
+				<?php endif;?>				
 			});
 			
 			function check_add_form(){
@@ -130,10 +122,7 @@
 			#frame_type_help {float:right;padding-right:10px;}
 		</style>
 	</head>
-    <body>
-		
-		
-		
+    <body>		
 		<div id="insert_wrapper">
 			<h4>Insert Global Content Block</h4>
 			<i>Select the content block to insert</i>
